@@ -9,8 +9,9 @@
         <tbody>
             <tr *ngFor="let agent of agents">
                 <td>
-                    <a 
+                    <a [routerLink]="['/agents', agent._id, 'detail']">
                     {{agent._name}}
+                </a>
                 
                 </td>
                 <td>{{agent._age}}</td>

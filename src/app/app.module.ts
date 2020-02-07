@@ -25,7 +25,7 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
     {path: 'welcome', component: AgentListComponent},
     {path: 'agents', component: AgentListComponent},
     {path: 'agents/:id/edit', component: AgentEditComponent},
-    {path: 'agents/:id', component: AgentDetailComponent},
+    {path: 'agents/:id/detail', component: AgentDetailComponent},
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
     { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
   ])

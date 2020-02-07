@@ -24,4 +24,9 @@ export class AgentService{
     getAgentsAsync() : Observable<Agent[]>{
         return this.httpClient.get<Agent[]>(this.url); 
     }
+
+    getAgentById(id : number) : Observable<Agent> {
+        let urlWithId = `${this.url}/${id}`;
+        return this.httpClient.get<Agent>(urlWithId);
+    }
 }

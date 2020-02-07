@@ -1,6 +1,15 @@
 export class Agent {
-    constructor(private _name: String, private _age: number){
+   
+    constructor(private _id: number, private _name: String, private _age: number){
     }
+
+    public get id(): number {
+        return this._id;
+    }
+    public set id(value: number) {
+        this._id = value;
+    }
+
     get name(){
         return this._name;
     }
