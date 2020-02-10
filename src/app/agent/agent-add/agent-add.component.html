@@ -4,37 +4,33 @@
   <div class="card-body">
     <form novalidate (ngSubmit)="saveAgent()" [formGroup]="agentForm">
       <div class="form-group row mb-2">
-        <label class="col-md-2 col-form-label" for="agentNameId"
-          >Agent Name</label
-        >
+        <label class="col-md-2 col-form-label" for="name">Agent Name</label>
         <div class="col-md-8">
           <input
             class="form-control"
-            id="agentNameId"
+            id="name"
             type="text"
             placeholder="Name (required)"
-            formControlName="agentName"
-            [ngClass]="{ 'is-invalid': displayMessage.agentName }"
+            formControlName="name"
+            [ngClass]="{ 'is-invalid': displayMessage.name }"
           />
           <span class="invalid-feedback">
-            {{ displayMessage.agentName }}
+            {{ displayMessage.name }}
           </span>
         </div>
       </div>
 
       <div class="form-group row mb-2">
-        <label class="col-md-2 col-form-label" for="agentAgeId"
-          >Agent Age</label
-        >
+        <label class="col-md-2 col-form-label" for="age">Agent Age</label>
 
         <div class="col-md-8">
           <input
             class="form-control"
-            id="agentAgeId"
+            id="age"
             type="number"
             placeholder="Age (required)"
-            formControlName="agentAge"
-            [ngClass]="{ 'is-invalid': displayMessage.agentAge }"
+            formControlName="age"
+            [ngClass]="{ 'is-invalid': displayMessage.age }"
           />
           <span class="invalid-feedback">
             {{ displayMessage.agentAge }}

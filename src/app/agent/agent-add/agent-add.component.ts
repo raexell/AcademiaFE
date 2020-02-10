@@ -39,26 +39,26 @@ export class AgentAddComponent implements OnInit {
     private agentServie: AgentService
   ) {
     this.validationMessages = {
-      agentName: {
+      name: {
         required: "Agent name is required.",
         minlength: "Agent name must be at least three characters.",
         maxlength: "Agent name cannot exceed 50 characters."
       },
-      agentAge: {
+      age: {
         range:
           "The age must be at least 18 years old and not older than 122 years old"
       }
     };
-    this.validator = new GenericValidator(this.validationMessages);
+    this.genericValidator = new GenericValidator(this.validationMessages);
   }
 
   ngOnInit(): void {
     this.agentForm = this.fb.group({
-      agentName: [
+      name: [
         "",
         [Validators.required, Validators.minLength(3), Validators.maxLength(50)]
       ],
-      agentAge: ["", NumberValidators.range(18, 122)]
+      age: ["", NumberValidators.range(18, 122)]
     });
   }
 
@@ -84,7 +84,9 @@ export class AgentAddComponent implements OnInit {
     merge(this.agentForm.valueChanges, ...controlBlurs)
       .pipe(debounceTime(2000))
       .subscribe(value => {
-        this.displayMessage = this.validator.processMessages(this.agentForm);
+        this.displayMessage = this.genericValidator.processMessages(
+          this.agentForm
+        );
         console.log(this.displayMessage);
       });
   }

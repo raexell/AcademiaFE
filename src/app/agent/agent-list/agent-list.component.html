@@ -1,21 +1,20 @@
-<div class='table-responsive'>
-    <table class='table'>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Age</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let agent of agents">
-                <td>
-                    <a [routerLink]="['/agents', agent._id, 'detail']">
-                    {{agent._name}}
-                </a>
-                
-                </td>
-                <td>{{agent._age}}</td>
-            </tr>
-        </tbody>
-    </table>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let agent of agents">
+        <td>
+          <a [routerLink]="['/agents', agent.id, 'detail']">
+            {{ agent.name }}
+          </a>
+        </td>
+        <td>{{ agent.age }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

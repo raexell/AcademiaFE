@@ -1,10 +1,15 @@
+<div *ngIf="current" id="agentDetail">
+  <h3>Agent Detail</h3>
+  <span id="name">Agent Name: {{ current.name }}</span
+  ><br />
+  <span id="age">Agent Age: {{ current.age }}</span
+  ><br />
 
-<div  *ngIf='current'  id = "agentDetail">
-    <h3>Agent Detail</h3>
-<span id= "name">Agent Name: {{ current._name }}</span><br>
-<span id="age">Agent Age: {{ current._age }}</span><br>
-
-<button class="btn btn-outline-secondary mr-3" style="width:80px" (click)="onBack()">
+  <button
+    class="btn btn-outline-secondary mr-3"
+    style="width:80px"
+    (click)="onBack()"
+  >
     <i class="fa fa-chevron-left"></i> Back
-</button>
+  </button>
 </div>
