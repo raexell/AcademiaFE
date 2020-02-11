@@ -1,1 +1,58 @@
-<p>agent-edit works!</p>
+<div class="card">
+  <div class="card-header">{{ pageTitle }}</div>
+
+  <div class="card-body">
+    <form novalidate (ngSubmit)="editAgent()" [formGroup]="agentForm">
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="name">Agent Name</label>
+        <div class="col-md-8">
+          <input
+            class="form-control"
+            id="name"
+            type="text"
+            formControlName="name"
+            [ngClass]="{ 'is-invalid': displayMessage.name }"
+          />
+          <span class="invalid-feedback">
+            {{ displayMessage.name }}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="age">Agent Age</label>
+
+        <div class="col-md-8">
+          <input
+            class="form-control"
+            id="age"
+            type="number"
+            formControlName="age"
+            [ngClass]="{ 'is-invalid': displayMessage.age }"
+          />
+          <span class="invalid-feedback">
+            {{ displayMessage.agentAge }}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <div class="offset-md-2 col-md-4">
+          <button
+            class="btn btn-primary mr-3"
+            style="width:80px;"
+            type="submit"
+            [title]="
+              agentForm.valid
+                ? 'Save your entered data'
+                : 'Disabled until the form data is valid'
+            "
+            [disabled]="!agentForm.valid"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 })
 export class AgentService {
   private agents: Agent[];
-  private url: string = "api/agents";
+  private url: string = "http://localhost:8080/api/agents";
   constructor(private httpClient: HttpClient) {
     /* this.agents = [
             new Agent("pippo", 21),
@@ -29,7 +29,7 @@ export class AgentService {
     return this.httpClient.get<Agent>(urlWithId);
   }
 
-  save(agent: Agent) {
+  createAgent(agent: Agent) {
     const h = new HttpHeaders({ "Content-Type": "application/json" });
     return this.httpClient.post<Agent>(this.url, agent, { headers: h });
   }

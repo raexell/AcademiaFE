@@ -24,7 +24,6 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    InMemoryWebApiModule.forRoot(Database),
     RouterModule.forRoot([
       { path: "welcome", component: AgentListComponent },
       { path: "agents", component: AgentListComponent },

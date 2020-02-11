@@ -8,6 +8,7 @@ import { AgentService } from '../agent.service';
     styleUrls: ['./agent-list.component.css']
 })
 export class AgentListComponent implements OnInit{
+    pageTitle = "Agent List";
     constructor(private agentService: AgentService){
 
     }

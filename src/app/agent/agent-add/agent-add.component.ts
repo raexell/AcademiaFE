@@ -24,7 +24,6 @@ export class AgentAddComponent implements OnInit {
   pageTitle = "Add Agent";
   errorMessage: string;
   agentForm: FormGroup;
-  private validator: GenericValidator;
 
   private sub: Subscription;
 
@@ -36,7 +35,7 @@ export class AgentAddComponent implements OnInit {
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private agentServie: AgentService
+    private agentService: AgentService
   ) {
     this.validationMessages = {
       name: {
@@ -65,7 +64,7 @@ export class AgentAddComponent implements OnInit {
   saveAgent(): void {
     console.log(this.agentForm.value);
     let agent = { ...this.agentForm.value };
-    this.agentServie.save(agent).subscribe(
+    this.agentService.createAgent(agent).subscribe(
       a => {
         console.log(a);
         this.router.navigate(["/agents"]);
