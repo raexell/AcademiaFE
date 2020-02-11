@@ -4,24 +4,39 @@
   <div class="card-body">
     <form novalidate (ngSubmit)="editAgent()" [formGroup]="agentForm">
       <div class="form-group row mb-2">
-        <label class="col-md-2 col-form-label" for="name">Agent Name</label>
+        <label class="col-md-2 col-form-label" for="firstname">Firstname</label>
         <div class="col-md-8">
           <input
             class="form-control"
-            id="name"
+            id="firstname"
             type="text"
-            formControlName="name"
+            formControlName="firstname"
             [ngClass]="{ 'is-invalid': displayMessage.name }"
           />
           <span class="invalid-feedback">
-            {{ displayMessage.name }}
+            {{ displayMessage.firstname }}
           </span>
         </div>
       </div>
 
       <div class="form-group row mb-2">
-        <label class="col-md-2 col-form-label" for="age">Agent Age</label>
+        <label class="col-md-2 col-form-label" for="lastname">Lastname </label>
+        <div class="col-md-8">
+          <input
+            class="form-control"
+            id="lastname"
+            type="text"
+            formControlName="lastname"
+            [ngClass]="{ 'is-invalid': displayMessage.name }"
+          />
+          <span class="invalid-feedback">
+            {{ displayMessage.lastname }}
+          </span>
+        </div>
+      </div>
 
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="age">Age</label>
         <div class="col-md-8">
           <input
             class="form-control"
@@ -32,6 +47,22 @@
           />
           <span class="invalid-feedback">
             {{ displayMessage.agentAge }}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="sex">Sex</label>
+        <div class="col-md-8">
+          <input
+            class="form-control"
+            id="sex"
+            type="text"
+            formControlName="sex"
+            [ngClass]="{ 'is-invalid': displayMessage.sex }"
+          />
+          <span class="invalid-feedback">
+            {{ displayMessage.sex }}
           </span>
         </div>
       </div>

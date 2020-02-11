@@ -2,7 +2,7 @@
   <h2>{{ pageTitle }}</h2>
 </div>
 <div style="text-align:right">
-  <button class="btn btn-success">
+  <button class="btn btn-success" [routerLink]="['/agents/0/add']">
     <i class="fa fa-user-plus"></i> Add Agent
   </button>
 </div>
@@ -11,23 +11,27 @@
   <table class="table table-striped">
     <thead>
       <tr>
+        <th></th>
         <th>Firstname</th>
         <th>Lastname</th>
-        <th>Age</th>
-        <th>Sex</th>
         <th></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let agent of agents">
         <td>
-          <a [routerLink]="['/agents', agent.id, 'detail']">
-            {{ agent.firstname }}
-          </a>
+          <button
+            class="btn btn-link"
+            [routerLink]="['/agents', agent.id, 'detail']"
+          >
+            <i class="fa fa-info-circle"></i>
+          </button>
+        </td>
+        <td>
+          {{ agent.firstname }}
         </td>
         <td>{{ agent.lastname }}</td>
-        <td>{{ agent.age }}</td>
-        <td>{{ agent.sex }}</td>
+
         <td>
           <button class="btn btn-danger" (click)="onDelete(agent.id - 1)">
             <i class="fa fa-trash"></i>

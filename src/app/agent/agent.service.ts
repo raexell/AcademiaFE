@@ -33,4 +33,6 @@ export class AgentService {
     const h = new HttpHeaders({ "Content-Type": "application/json" });
     return this.httpClient.post<Agent>(this.url, agent, { headers: h });
   }
+
+  updateAgent() {}
 }

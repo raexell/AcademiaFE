@@ -42,14 +42,22 @@ export class AgentEditComponent implements OnInit {
     private agentService: AgentService
   ) {
     this.validationMessages = {
-      name: {
-        required: "Agent name is required.",
-        minlength: "Agent name must be at least three characters.",
-        maxlength: "Agent name cannot exceed 50 characters."
+      firstname: {
+        required: "Agent firstname is required.",
+        minlength: "Agent firstname must be at least three characters.",
+        maxlength: "Agent firstname cannot exceed 50 characters."
+      },
+      lastname: {
+        required: "Agent lastname is required.",
+        minlength: "Agent lastname must be at least three characters.",
+        maxlength: "Agent lastname cannot exceed 50 characters."
       },
       age: {
         range:
           "The age must be at least 18 years old and not older than 122 years old"
+      },
+      sex: {
+        required: "Sex must be M or F or NA"
       }
     };
     this.genericValidator = new GenericValidator(this.validationMessages);
@@ -57,10 +65,15 @@ export class AgentEditComponent implements OnInit {
 
   ngOnInit() {
     this.agentForm = this.fb.group({
-      name: [
+      firstname: [
         "",
         [Validators.required, Validators.minLength(3), Validators.maxLength(50)]
       ],
+      lastname: [
+        "",
+        [Validators.required, Validators.minLength(3), Validators.maxLength(50)]
+      ],
+      sex: ["", [Validators.required]],
       age: ["", NumberValidators.range(18, 122)]
     });
 
@@ -77,8 +90,10 @@ export class AgentEditComponent implements OnInit {
     }
     this.current = agent;
     this.agentForm.patchValue({
-      name: this.current.name,
-      age: this.current.age
+      firstname: this.current.firstname,
+      lastname: this.current.lastname,
+      age: this.current.age,
+      sex: this.current.sex
     });
   }
 
