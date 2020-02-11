@@ -6,20 +6,22 @@ export class Database implements InMemoryDbService {
     const agents: Agent[] = [
       {
         id: 1,
-        name: "Carlito",
+        firstname: "Carlito",
+        lastname: "Carlito",
+        sex: "M",
         age: 20
-      },
-      {
-        id: 2,
-        name: "Don Giovanni",
-        age: 25
-      },
-      {
-        id: 3,
-        name: "LaDeni",
-        age: 28
       }
+      //     {
+      //       id: 2,
+      //       name: "Don Giovanni",
+      //       age: 25
+      //     },
+      //     {
+      //       id: 3,
+      //       name: "LaDeni",
+      //       age: 28
+      //     }
     ];
-    return { agents };
+    //   return { agents };
   }
 }

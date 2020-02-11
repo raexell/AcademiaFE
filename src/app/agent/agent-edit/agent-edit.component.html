@@ -11,7 +11,7 @@
             id="firstname"
             type="text"
             formControlName="firstname"
-            [ngClass]="{ 'is-invalid': displayMessage.name }"
+            [ngClass]="{ 'is-invalid': displayMessage.firstname }"
           />
           <span class="invalid-feedback">
             {{ displayMessage.firstname }}
@@ -27,7 +27,7 @@
             id="lastname"
             type="text"
             formControlName="lastname"
-            [ngClass]="{ 'is-invalid': displayMessage.name }"
+            [ngClass]="{ 'is-invalid': displayMessage.lastname }"
           />
           <span class="invalid-feedback">
             {{ displayMessage.lastname }}
@@ -46,7 +46,7 @@
             [ngClass]="{ 'is-invalid': displayMessage.age }"
           />
           <span class="invalid-feedback">
-            {{ displayMessage.agentAge }}
+            {{ displayMessage.age }}
           </span>
         </div>
       </div>

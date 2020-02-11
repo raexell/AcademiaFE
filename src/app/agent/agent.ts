@@ -1,7 +1,7 @@
-export class Agent {
+export interface Agent {
   id: number;
   firstname: string;
   lastname: string;
-  age: number;
+  age?: number;
   sex: string;
 }
