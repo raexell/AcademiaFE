@@ -1,1 +1,90 @@
-<p>student-add works!</p>
+<div class="card">
+    <div class="card-header">{{ pageTitle }}</div>
+  
+    <div class="card-body">
+      <form novalidate (ngSubmit)="editstudent()" [formGroup]="studentForm">
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="firstname">Firstname</label>
+          <div class="col-md-8">
+            <input
+              class="form-control"
+              id="firstname"
+              type="text"
+              formControlName="firstname"
+              [ngClass]="{ 'is-invalid': displayMessage.firstname }"
+            />
+            <span class="invalid-feedback">
+              {{ displayMessage.firstname }}
+            </span>
+          </div>
+        </div>
+  
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="lastname">Lastname </label>
+          <div class="col-md-8">
+            <input
+              class="form-control"
+              id="lastname"
+              type="text"
+              formControlName="lastname"
+              [ngClass]="{ 'is-invalid': displayMessage.lastname }"
+            />
+            <span class="invalid-feedback">
+              {{ displayMessage.lastname }}
+            </span>
+          </div>
+        </div>
+  
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="age">Age</label>
+          <div class="col-md-8">
+            <input
+              class="form-control"
+              id="age"
+              type="number"
+              formControlName="age"
+              [ngClass]="{ 'is-invalid': displayMessage.age }"
+            />
+            <span class="invalid-feedback">
+              {{ displayMessage.age }}
+            </span>
+          </div>
+        </div>
+  
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="sex">Sex</label>
+          <div class="col-md-8">
+            <input
+              class="form-control"
+              id="sex"
+              type="text"
+              formControlName="sex"
+              [ngClass]="{ 'is-invalid': displayMessage.sex }"
+            />
+            <span class="invalid-feedback">
+              {{ displayMessage.sex }}
+            </span>
+          </div>
+        </div>
+  
+        <div class="form-group row mb-2">
+          <div class="offset-md-2 col-md-4">
+            <button
+              class="btn btn-primary mr-3"
+              style="width:80px;"
+              type="submit"
+              [title]="
+                studentForm.valid
+                  ? 'Save your entered data'
+                  : 'Disabled until the form data is valid'
+              "
+              [disabled]="!studentForm.valid"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  

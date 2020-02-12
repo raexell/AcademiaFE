@@ -1,1 +1,44 @@
-<p>student-list works!</p>
+<div class="jumbotron text-center">
+    <h2>{{ pageTitle }}</h2>
+  </div>
+  <div style="text-align:right">
+    <button class="btn btn-success" [routerLink]="['/students/0/add']">
+      <i class="fa fa-user-plus"></i> Add Student
+    </button>
+  </div>
+  
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students">
+          <td>
+            <button
+              class="btn btn-link"
+              [routerLink]="['/students', student.id, 'detail']"
+            >
+              <i class="fa fa-info-circle"></i>
+            </button>
+          </td>
+          <td>
+            {{ student.firstname }}
+          </td>
+          <td>{{ student.lastname }}</td>
+  
+          <td>
+            <button class="btn btn-danger" (click)="onDelete(student.id)">
+              <i class="fa fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
