@@ -1,1 +1,34 @@
-<p>course-list works!</p>
+<div class="jumbotron text-center">
+  <h2>{{ pageTitle }}</h2>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Title</th>
+        <th>Start</th>
+        <th>End</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let course of coursesEdition">
+        <td>
+          <button
+            class="btn btn-link"
+            [routerLink]="['/courses', course.id, 'detail']"
+          >
+            <i class="fa fa-info-circle"></i>
+          </button>
+        </td>
+        <td>
+          {{ course.title }}
+        </td>
+        <td>{{ course.start }}</td>
+        <td>{{ course.end }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

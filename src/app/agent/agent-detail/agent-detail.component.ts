@@ -20,7 +20,10 @@ export class AgentDetailComponent implements OnInit {
   ngOnInit() {
     const id = +this.route.snapshot.paramMap.get("id");
     this.agentService.getAgentById(id).subscribe(
-      a => (this.current = a),
+      a => {
+        this.current = a;
+        console.log(this.current);
+      },
       error => (this.errorMessage = error)
     );
   }

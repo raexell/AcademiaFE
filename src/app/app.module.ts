@@ -47,7 +47,7 @@ import { HomepageComponent } from "./homepage/homepage.component";
       { path: "agents/:id/edit", component: AgentEditComponent },
       { path: "agents/:id/detail", component: AgentDetailComponent },
       { path: "students", component: StudentListComponent },
-      { path: "student/:id/add", component: StudentAddComponent },
+      { path: "students/:id/add", component: StudentAddComponent },
       { path: "students/:id/edit", component: StudentEditComponent },
       { path: "students/:id/detail", component: StudentDetailComponent },
       { path: "courses", component: CourseListComponent },
