@@ -9,10 +9,12 @@ import {
   FormBuilder,
   Validators
 } from "@angular/forms";
-import { GenericValidator } from "../generic-validator";
+
 import { Subscription, Observable, fromEvent, merge } from "rxjs";
-import { NumberValidators } from "../number-validator";
+
 import { debounceTime } from "rxjs/operators";
+import { GenericValidator } from "src/app/shared/generic-validator";
+import { NumberValidators } from "src/app/shared/number-validator";
 
 @Component({
   selector: "app-agent-edit",

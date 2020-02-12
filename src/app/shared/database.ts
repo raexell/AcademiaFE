@@ -1,5 +1,5 @@
 import { InMemoryDbService } from "angular-in-memory-web-api";
-import { Agent } from "./agent";
+import { Agent } from "../agent/agent";
 
 export class Database implements InMemoryDbService {
   createDb() {
@@ -22,6 +22,6 @@ export class Database implements InMemoryDbService {
       //       age: 28
       //     }
     ];
-    //   return { agents };
+    return { agents };
   }
 }
