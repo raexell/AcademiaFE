@@ -1,4 +1,4 @@
-import { InMemoryDbService } from "angular-in-memory-web-api";
+/*import { InMemoryDbService } from "angular-in-memory-web-api";
 import { Agent } from "../agent/agent";
 
 export class Database implements InMemoryDbService {
@@ -9,8 +9,17 @@ export class Database implements InMemoryDbService {
         firstname: "Carlito",
         lastname: "Carlito",
         sex: "M",
-        age: 20
-      }
+        age: 20,
+        
+  adress: "adress",
+  city: "milano",
+  zip: "asd",
+  hourlyRate: 20,
+  phone: 123556,
+  email: "email",
+  website: "dada",
+  employee: false
+     // }
       //     {
       //       id: 2,
       //       name: "Don Giovanni",
@@ -25,3 +34,4 @@ export class Database implements InMemoryDbService {
     return { agents };
   }
 }
+*/

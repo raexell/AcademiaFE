@@ -12,17 +12,19 @@ import { NumberValidators } from "src/app/shared/number-validator";
   styleUrls: ['./student-add.component.css']
 })
 export class StudentAddComponent implements OnInit {
+  pageTitle = "Add Student";
+  
   @ViewChildren(FormControlName, { read: ElementRef })
   formInputElements: ElementRef[];
 
-  pageTitle = "Add Student";
+ 
   errorMessage: string;
   studentForm: FormGroup;
 
   displayMessage: { [key: string]: string } = {};
   private validationMessages: { [key: string]: { [key: string]: string } };
   private genericValidator: GenericValidator;
-
+ 
 
 
   constructor(
@@ -30,7 +32,7 @@ export class StudentAddComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private studentService: StudentService
-    )  { 
+    )  {
       this.validationMessages = {
         firstname: {
           required: "Student firstname is required.",
@@ -42,31 +44,52 @@ export class StudentAddComponent implements OnInit {
           minlength: "Student lastname must be at least three characters.",
           maxlength: "Student lastname cannot exceed 50 characters."
         },
-        age: {
-          range:
-            "The age must be at least 18 years old and not older than 122 years old"
-        },
+    
         sex: {
           required: "Sex must be M or F or NA"
-        }
+        },
+        email: {
+          required: "You must insert a vaild email."
+        },
+        phone: {
+          required: "You must insert a telephone number.",
+          minlength: "Phone number must contains at least 10 numbers.",
+          maxlength: "Phone number cannot contain more than 14 characters."
+          
+        },
+        degreeTitle: {
+          required: "You must insert a Degree Title.",
+        },
+        
+  
       };
       this.genericValidator = new GenericValidator(this.validationMessages);
     }
 
-  ngOnInit() {
-    this.studentForm = this.fb.group({
-      firstname: [
-        "",
-        [Validators.required, Validators.minLength(3), Validators.maxLength(50)]
-      ],
-      lastname: [
-        "",
-        [Validators.required, Validators.minLength(3), Validators.maxLength(50)]
-      ],
-      sex: ["", [Validators.required]],
-      age: ["", NumberValidators.range(18, 122)]
-    });
-  }
+    ngOnInit()  {
+      this.studentForm = this.fb.group({
+        firstname: [
+          "",
+          [Validators.required, Validators.minLength(3), Validators.maxLength(50)]
+        ],
+        lastname: [
+          "",
+          [Validators.required, Validators.minLength(3), Validators.maxLength(50)]
+        ],
+        sex: ["", [Validators.required]], 
+        email: ["", Validators.required],
+        phone: ["", [Validators.required, Validators.minLength(10), Validators.maxLength(14)] ],
+        degreeTitle: ["", Validators.maxLength(100)],
+        independent:[""],
+        degreeType:[""],
+        dateOfBirth:[""],
+        idClient:[""],
+        
+        
+      });
+  
+     
+    }
 
   saveStudent(): void {
     console.log(this.studentForm.value);
@@ -93,6 +116,21 @@ export class StudentAddComponent implements OnInit {
         );
         console.log(this.displayMessage);
       });
+  }
+  addStudent(): void {
+    console.log("entrati in addStudent")
+    console.log(this.studentForm.value);
+ 
+    let student = { ...this.studentForm.value };
+  
+    this.studentService.createStudent(student).subscribe(
+      a => {
+        console.log(a);
+        console.log(a.id);
+        this.router.navigate(["/students"]);
+      },
+      err => (this.displayMessage.post = err)
+    );
   }
 
 }

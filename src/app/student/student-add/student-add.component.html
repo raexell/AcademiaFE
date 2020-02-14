@@ -1,8 +1,8 @@
 <div class="card">
-    <div class="card-header">{{ pageTitle }}</div>
-  
+    <div class="card-header">Add Student</div>
+
     <div class="card-body">
-      <form novalidate (ngSubmit)="editstudent()" [formGroup]="studentForm">
+      <form novalidate (ngSubmit)="addStudent()" [formGroup]="studentForm">
         <div class="form-group row mb-2">
           <label class="col-md-2 col-form-label" for="firstname">Firstname</label>
           <div class="col-md-8">
@@ -35,21 +35,6 @@
           </div>
         </div>
   
-        <div class="form-group row mb-2">
-          <label class="col-md-2 col-form-label" for="age">Age</label>
-          <div class="col-md-8">
-            <input
-              class="form-control"
-              id="age"
-              type="number"
-              formControlName="age"
-              [ngClass]="{ 'is-invalid': displayMessage.age }"
-            />
-            <span class="invalid-feedback">
-              {{ displayMessage.age }}
-            </span>
-          </div>
-        </div>
   
         <div class="form-group row mb-2">
           <label class="col-md-2 col-form-label" for="sex">Sex</label>
@@ -64,6 +49,111 @@
             <span class="invalid-feedback">
               {{ displayMessage.sex }}
             </span>
+          </div>
+        </div>
+
+        
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="phone">Phone</label>
+          <div class="col-md-8">
+            <input
+              class="form-control"
+              id="phone"
+              type="text"
+              formControlName="phone"
+              [ngClass]="{ 'is-invalid': displayMessage.phone }"
+            />
+            <span class="invalid-feedback">
+              {{ displayMessage.phone }}
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="dateOfBirth">Date of birth</label>
+          <div class="col-md-8">
+            <input
+              class="form-control"
+              id="dateOfBirth"
+              type="date"
+              formControlName="dateOfBirth"
+             
+            />
+      
+          </div>
+        </div>
+
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="degreeTitle">Degree Title</label>
+          <div class="col-md-8">
+            <input
+              class="form-control"
+              id="degreeTitle"
+              type="text"
+              formControlName="degreeTitle"
+              [ngClass]="{ 'is-invalid': displayMessage.degreeTitle }"
+            />
+            <span class="invalid-feedback">
+              {{ displayMessage.degreeTitle }}
+            </span>
+          </div>
+        </div>
+
+        
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="email">Email</label>
+          <div class="col-md-8">
+            <input
+              class="form-control"
+              id="email"
+              type="email"
+              formControlName="email"
+              [ngClass]="{ 'is-invalid': displayMessage.email }"
+            />
+            <span class="invalid-feedback">
+              {{ displayMessage.email }}
+            </span>
+          </div>
+        </div>
+
+        
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="independent">Independent</label>
+          <div class="col-md-8">
+            <input
+              class="form-control"
+              id="independent"
+              type="checkbox"
+              formControlName="independent"
+              
+            />
+      
+          </div>
+        </div>
+
+        
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="degreeType">Degree Type</label>
+          <div class="col-md-8">
+            <select id = "degreeType" name = "degreeType" formControlName = "degreeType">
+              <option value = "0">High School</option>
+              <option value = "1">College</option>
+              <option value = "2">Master</option>
+              <option value = "3">PhD</option>
+            </select>
+         
+          </div>
+        </div>
+
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="idClient">Client:</label>
+          <div class="col-md-8">
+            <select id = "idClient" name = "idCliet" formControlName = "idClient">
+              <option value = "1">Client 1</option>
+              <option value = "2">Client 2</option>
+              <option value = "3">Client 3</option>
+            </select>
+       
           </div>
         </div>
   

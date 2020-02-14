@@ -18,14 +18,7 @@ export class StudentListComponent implements OnInit {
     private router: Router,) {}
 
   ngOnInit(): void {
-    // this.agents= this.agentService.getAgents();
-    this.studentService.getStudentsAsync().subscribe(
-      st => {
-        this.students = st;
-        console.log(st);
-      },
-      error => console.log(error)
-    );
+    this.loadData();
   }
   private messagge = "Ciao lista componenti";
   private students: Student[];
@@ -47,33 +40,42 @@ export class StudentListComponent implements OnInit {
       console.log(this.students[id].id);
     }*/
 
-    onDelete(ids: number){
-
-      
-      const id = +this.route.snapshot.paramMap.get("id");
-      let idArray = 0;
-      for (let i = 0; i < this.students.length; i++) {
-        if (this.students[i].id === ids) {
-          idArray = i;
-          
-        }
-      }
-
-
+    onDelete(student : Student){
+      console.log("Ondelete");
       if (
         confirm(
-          `Are you sure to want to delete this Student: ${this.students[idArray].firstname} ${this.students[idArray].lastname}?`
+          `Are you sure to want to delete this Student: ${student.firstname} ${student.lastname}?`
         )
       ) {
-        console.log(ids);
-      this.studentService.deleteStudent(ids).subscribe(
+        console.log("Chiamando deleteStudent");
+      this.studentService.deleteStudent(student.id).subscribe(
         
-        a => (this.current = a),
-        error => (this.errorMessage = error)
+        () => {
+         
+          console.log("Delete Student call loadData");
+          this.loadData();
+        },
+
+        error => {
+          this.errorMessage = error;
+          console.log(error);
+        }
       );
-      window.location.reload();
+      
     }}
-  
+    
+    loadData() : void {
+
+    // this.agents= this.agentService.getAgents();
+    this.studentService.getStudentsAsync().subscribe(
+      st => {
+        this.students = st;
+        console.log("loadData");
+        console.log(st);
+      },
+      error => console.log(error)
+    );
+    }
 
  
 }

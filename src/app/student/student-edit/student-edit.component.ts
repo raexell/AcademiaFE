@@ -16,7 +16,8 @@ import { NumberValidators } from "src/app/shared/number-validator";
 })
 export class StudentEditComponent implements OnInit {
 
-  formInputElements: ElementRef[];
+  @ViewChildren(FormControlName, {read: ElementRef}) formInputElements: ElementRef[];
+
 
   pageTitle = "Edit Student";
   current: Student;
@@ -48,10 +49,7 @@ export class StudentEditComponent implements OnInit {
         minlength: "Student lastname must be at least three characters.",
         maxlength: "Student lastname cannot exceed 50 characters."
       },
-      age: {
-        range:
-          "The age must be at least 18 years old and not older than 122 years old"
-      },
+  
       sex: {
         required: "Sex must be M or F or NA"
       },
@@ -84,15 +82,16 @@ export class StudentEditComponent implements OnInit {
         "",
         [Validators.required, Validators.minLength(3), Validators.maxLength(50)]
       ],
-      sex: ["", [Validators.required]],
-      age: ["", NumberValidators.range(18, 122)], 
+      sex: ["", [Validators.required]], 
       email: ["",Validators.required],
       phone: ["", [Validators.required, Validators.minLength(10), Validators.maxLength(14)] ],
       degreeTitle: ["", Validators.maxLength(10)],
       independent:[""],
       degreeType:[""],
       dateOfBirth:[""],
-      idClient:[""]
+      idClient:[""],
+      id:[""]
+      
     });
 
     const id = +this.route.snapshot.paramMap.get("id");
@@ -109,9 +108,9 @@ export class StudentEditComponent implements OnInit {
     }
     this.current = student;
     this.studentForm.patchValue({
+      id: this.current.id,
       firstname: this.current.firstname,
       lastname: this.current.lastname,
-      age: this.current.age,
       sex: this.current.sex,
       phone: this.current.phone,
       email: this.current.email,
@@ -124,9 +123,7 @@ export class StudentEditComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
-    const controlBlurs: Observable<
-      any
-    >[] = this.formInputElements.map((formControl: ElementRef) =>
+    const controlBlurs: Observable< any >[] = this.formInputElements.map((formControl: ElementRef) =>
       fromEvent(formControl.nativeElement, "blur")
     );
 
@@ -141,12 +138,16 @@ export class StudentEditComponent implements OnInit {
   }
 
   
-  editStudent() {
+  editStudent(): void {
+    console.log("entrati in editStudent")
     console.log(this.studentForm.value);
+ 
     let student = { ...this.studentForm.value };
+  
     this.studentService.updateStudent(student).subscribe(
       a => {
         console.log(a);
+        console.log(a.id);
         this.router.navigate(["/students"]);
       },
       err => (this.displayMessage.post = err)

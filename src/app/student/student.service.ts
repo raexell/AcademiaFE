@@ -38,24 +38,13 @@ export class StudentService {
   updateStudent(student: Student): Observable<Student> {
     const h = new HttpHeaders({ "Content-Type": "application/json" });
     const urlUp = `${this.url}/${student.id}`;
+    console.log(student.id)
     return this.httpClient.put<Student>(urlUp, student, { headers: h });
   }
 
-  deleteStudent2(id: number): Observable<{}> {
-    const urlDele = `${this.url}/${id}`;
-    console.log(urlDele);
-    return this.httpClient
-      .delete<Student>(urlDele)
-      .pipe(tap(data => console.log("deleted " + id)));
-  }
 
-  deleteStudent3(id: number): Observable<Student> {
+  deleteStudent(id: number): Observable<void> {
     let urlWithId = `${this.url}/${id}`;
-    return this.httpClient.delete<Student>(urlWithId);
-  }
-
-  deleteStudent(id: number): Observable<Student> {
-    let urlWithId = `${this.url}/${id}`;
-    return this.httpClient.delete<Student>(urlWithId);
+    return this.httpClient.delete<void>(urlWithId);
   }
 }

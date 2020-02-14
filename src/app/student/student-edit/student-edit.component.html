@@ -2,7 +2,7 @@
     <div class="card-header">{{ pageTitle }}</div>
   
     <div class="card-body">
-      <form novalidate (ngSubmit)="editStudent()()" [formGroup]="studentForm">
+      <form novalidate (ngSubmit)="editStudent()" [formGroup]="studentForm">
         <div class="form-group row mb-2">
           <label class="col-md-2 col-form-label" for="firstname">Firstname</label>
           <div class="col-md-8">
@@ -35,21 +35,8 @@
           </div>
         </div>
   
-        <div class="form-group row mb-2">
-          <label class="col-md-2 col-form-label" for="age">Age</label>
-          <div class="col-md-8">
-            <input
-              class="form-control"
-              id="age"
-              type="number"
-              formControlName="age"
-              [ngClass]="{ 'is-invalid': displayMessage.age }"
-            />
-            <span class="invalid-feedback">
-              {{ displayMessage.age }}
-            </span>
-          </div>
-        </div>
+
+     
   
         <div class="form-group row mb-2">
           <label class="col-md-2 col-form-label" for="sex">Sex</label>
@@ -93,11 +80,9 @@
               id="dateOfBirth"
               type="date"
               formControlName="dateOfBirth"
-              [ngClass]="{ 'is-invalid': displayMessage.dateOfBirth }"
+             
             />
-            <span class="invalid-feedback">
-              {{ displayMessage.dateOfBirth }}
-            </span>
+      
           </div>
         </div>
 
@@ -129,7 +114,7 @@
               [ngClass]="{ 'is-invalid': displayMessage.email }"
             />
             <span class="invalid-feedback">
-              {{ displayMessage.emaill }}
+              {{ displayMessage.email }}
             </span>
           </div>
         </div>
@@ -159,9 +144,7 @@
               <option value = "2">Master</option>
               <option value = "3">PhD</option>
             </select>
-            <span class="invalid-feedback">
-              {{ displayMessage.degreeType }}
-            </span>
+         
           </div>
         </div>
 
@@ -173,9 +156,7 @@
               <option value = "2">Client 2</option>
               <option value = "3">Client 3</option>
             </select>
-            <span class="invalid-feedback">
-              {{ displayMessage.idClient }}
-            </span>
+       
           </div>
         </div>
   
@@ -184,14 +165,10 @@
             <button
               class="btn btn-primary mr-3"
               style="width:80px;"
-              type="submit"
-              [title]="
-                studentForm.valid
-                  ? 'Save your entered data'
-                  : 'Disabled until the form data is valid'
-              "
-              [disabled]="!studentForm.valid"
-            >
+              type="submit" 
+              [title]="studentForm.valid ? 'Save your entered data' : 'Disabled'" 
+              [disabled] ="!studentForm.valid"
+               >
               Save
             </button>
           </div>
