@@ -54,7 +54,21 @@ export class StudentEditComponent implements OnInit {
       },
       sex: {
         required: "Sex must be M or F or NA"
-      }
+      },
+      email: {
+        required: "You must insert a vaild email."
+      },
+      phone: {
+        required: "You must insert a telephone number.",
+        minlength: "Phone number must contains at least 10 numbers.",
+        maxlength: "Phone number cannot contain more than 14 characters."
+        
+      },
+      degreeTitle: {
+        required: "You must insert a Degree Title.",
+      },
+      
+
     };
     this.genericValidator = new GenericValidator(this.validationMessages);
   }
@@ -71,7 +85,14 @@ export class StudentEditComponent implements OnInit {
         [Validators.required, Validators.minLength(3), Validators.maxLength(50)]
       ],
       sex: ["", [Validators.required]],
-      age: ["", NumberValidators.range(18, 122)]
+      age: ["", NumberValidators.range(18, 122)], 
+      email: ["",Validators.required],
+      phone: ["", [Validators.required, Validators.minLength(10), Validators.maxLength(14)] ],
+      degreeTitle: ["", Validators.maxLength(10)],
+      independent:[""],
+      degreeType:[""],
+      dateOfBirth:[""],
+      idClient:[""]
     });
 
     const id = +this.route.snapshot.paramMap.get("id");
@@ -91,7 +112,14 @@ export class StudentEditComponent implements OnInit {
       firstname: this.current.firstname,
       lastname: this.current.lastname,
       age: this.current.age,
-      sex: this.current.sex
+      sex: this.current.sex,
+      phone: this.current.phone,
+      email: this.current.email,
+      degreeTitle: this.current.degreeTitle,
+      independent: this.current.independent,
+      dateOfBirth: this.current.dateOfBirth,
+      degreeType: this.current.degreeType,
+      idClient: this.current.idClient
     });
   }
 

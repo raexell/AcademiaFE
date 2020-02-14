@@ -3,23 +3,44 @@
   </div>
   <div class="container">
     <div class="row text-center" *ngIf="current" id="studentDetail">
-      <div class="col-sm-2">
+      <div class="col-sm-1">
         <h6>Firstname:</h6>
         <div id="name">{{ current.firstname }}</div>
       </div>
-      <div class="col-sm-2">
+      <div class="col-sm-1">
         <h6>Lastname:</h6>
         <div id="age">{{ current.lastname }}</div>
       </div>
-      <div class="col-sm-2">
+      <div class="col-sm-1">
         <h6>Age:</h6>
         <div id="age">{{ current.age }}</div>
       </div>
-      <div class="col-sm-2">
+      <div class="col-sm-1">
         <h6>Sex:</h6>
         <div id="age">{{ current.sex }}</div>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-1">
+        <h6>Phone:</h6>
+        <div id="phone">{{ current.phone }}</div>
+      </div>
+      <div class="col-sm-1">
+        <h6>Email:</h6>
+        <div id="email">{{ current.email }}</div>
+      </div>
+      <div class="col-sm-1">
+        <h6>Date of birth:</h6>
+        <div id="daetOfBirth">{{ current.dateOfBirth }}</div>
+      </div>
+      <div class="col-sm-1">
+        <h6>Degree Title:</h6>
+        <div id="degreeTitle">{{ current.degreeTitle }}</div>
+      </div>
+      <div class="col-sm-1">
+        <h6>Degree Type:</h6>
+        <div id="degreeType">{{ current.degreeType }}</div>
+      </div>
+      
+      <div class="col-sm-1">
         <button class="btn btn-warning" (click)="onEdit()">
           <i class="fa fa-edit"></i> Modifica
         </button>
